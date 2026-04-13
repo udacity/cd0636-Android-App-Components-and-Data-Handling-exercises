@@ -1,0 +1,45 @@
+{
+  "example": "Complex JSON response with nested objects",
+  "note": "This demonstrates the structure TaskResponse can handle",
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Complete Android project",
+      "completed": false,
+      "user": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com"
+      },
+      "created_at": "2024-01-15T10:30:00Z",
+      "due_date": "2024-02-01T23:59:59Z"
+    },
+    {
+      "id": 2,
+      "title": "Review code changes",
+      "completed": true,
+      "user": {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": null
+      },
+      "created_at": "2024-01-10T08:00:00Z",
+      "due_date": null
+    },
+    {
+      "id": 3,
+      "title": "Update documentation",
+      "completed": false,
+      "user": null,
+      "created_at": null,
+      "due_date": "2024-01-30T17:00:00Z"
+    }
+  ],
+  "notes": [
+    "Field name mapping: snake_case JSON (created_at) maps to camelCase Kotlin (createdAt)",
+    "Nullable fields: user, email, created_at, and due_date can be null",
+    "Nested objects: user is a nested UserInfo object",
+    "Custom adapter: DateAdapter handles ISO 8601 date strings",
+    "Safe defaults: When user is null, createdBy defaults to 'Unknown'"
+  ]
+}

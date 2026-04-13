@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Step 3 - Complete this dialog layout with TextInputLayout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- TODO: Add TextInputLayout with the following features:
+         - style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+         - id="@+id/taskTitleInputLayout"
+         - hint="Task title"
+         - app:counterEnabled="true"
+         - app:counterMaxLength="100"
+         - app:errorEnabled="true"
+         - app:helperTextEnabled="true"
+         - app:helperText="Enter at least 3 characters"
+         - app:endIconMode="clear_text"
+
+         Inside, add TextInputEditText with:
+         - id="@+id/taskTitleEditText"
+         - inputType="textCapSentences"
+         - maxLength="100"
+         - singleLine="true"
+    -->
+
+</LinearLayout>

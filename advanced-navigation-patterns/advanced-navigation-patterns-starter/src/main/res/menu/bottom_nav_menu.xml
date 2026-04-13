@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO 2.1: Add menu item for "All Tasks" tab
+         - android:id="@+id/nav_all_tasks" (MUST match navigation graph ID)
+         - android:title="All"
+         - android:icon="@drawable/ic_list"
+    -->
+
+    <!-- TODO 2.2: Add menu item for "Favorites" tab
+         - android:id="@+id/nav_favorites" (MUST match navigation graph ID)
+         - android:title="Favorites"
+         - android:icon="@drawable/ic_star"
+    -->
+
+    <!-- TODO 2.3: Add menu item for "Completed" tab
+         - android:id="@+id/nav_completed" (MUST match navigation graph ID)
+         - android:title="Done"
+         - android:icon="@drawable/ic_check"
+    -->
+</menu>

@@ -1,0 +1,94 @@
+package com.udacity.project.app
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class MovieListFragment : Fragment() {
+
+    private val viewModel: MovieViewModel by activityViewModels()
+
+    private lateinit var movieAdapter: MovieAdapter
+    private lateinit var moviesRecyclerView: RecyclerView
+    private lateinit var movieInputEditText: EditText
+    private lateinit var addMovieButton: Button
+    private lateinit var totalMoviesTextView: TextView
+    private lateinit var watchedMoviesTextView: TextView
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_movie_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initializeViews(view)
+        setupRecyclerView()
+        setupClickListeners()
+        observeViewModel()
+    }
+
+    private fun initializeViews(view: View) {
+        moviesRecyclerView = view.findViewById(R.id.moviesRecyclerView)
+        movieInputEditText = view.findViewById(R.id.movieInputEditText)
+        addMovieButton = view.findViewById(R.id.addMovieButton)
+        totalMoviesTextView = view.findViewById(R.id.totalMoviesTextView)
+        watchedMoviesTextView = view.findViewById(R.id.watchedMoviesTextView)
+    }
+
+    private fun setupRecyclerView() {
+        movieAdapter = MovieAdapter(
+            onMovieClicked = { movie ->
+                val action = MovieListFragmentDirections.actionListToDetail(movie.id)
+                findNavController().navigate(action)
+            },
+            onMovieToggled = { movieId ->
+                viewModel.toggleWatched(movieId)
+            },
+            onMovieDeleted = { movieId ->
+                viewModel.removeMovie(movieId)
+            }
+        )
+        moviesRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = movieAdapter
+        }
+    }
+
+    private fun setupClickListeners() {
+        addMovieButton.setOnClickListener {
+            val title = movieInputEditText.text.toString().trim()
+            if (title.isNotEmpty()) {
+                viewModel.addMovie(title)
+                movieInputEditText.text.clear()
+            }
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.movies.observe(viewLifecycleOwner) { movies ->
+            movieAdapter.updateMovies(movies)
+        }
+
+        viewModel.totalMovieCount.observe(viewLifecycleOwner) { count ->
+            totalMoviesTextView.text = "Total: $count"
+        }
+
+        viewModel.watchedCount.observe(viewLifecycleOwner) { count ->
+            watchedMoviesTextView.text = "Watched: $count"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <!-- TODO Part 1 Step 1: Define destinations and action
+         - Add a fragment destination for taskListFragment
+           - Set android:id="@+id/taskListFragment"
+           - Set android:name="com.udacity.project.app.TaskListFragment"
+           - Set android:label="Task List"
+           - Set tools:layout="@layout/fragment_task_list"
+         - Set this fragment as the start destination using app:startDestination="@id/taskListFragment"
+         - Add an action inside taskListFragment:
+           - Set android:id="@+id/action_list_to_detail"
+           - Set app:destination="@id/taskDetailFragment"
+         - Add a fragment destination for taskDetailFragment
+           - Set android:id="@+id/taskDetailFragment"
+           - Set android:name="com.udacity.project.app.TaskDetailFragment"
+           - Set android:label="Task Detail"
+           - Set tools:layout="@layout/fragment_task_detail"
+    -->
+
+    <!-- TODO Part 1 Step 2: Add Safe Args argument
+         - Inside the taskDetailFragment destination, add an argument:
+           - Set android:name="taskId"
+           - Set app:argType="integer"
+         - After completing the navigation graph, rebuild the project to generate:
+           - TaskListFragmentDirections class
+           - TaskDetailFragmentArgs class
+    -->
+
+</navigation>

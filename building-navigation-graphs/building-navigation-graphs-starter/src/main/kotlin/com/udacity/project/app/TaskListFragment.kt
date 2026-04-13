@@ -1,0 +1,99 @@
+package com.udacity.project.app
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+// import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class TaskListFragment : Fragment() {
+
+    private val viewModel: TaskViewModel by activityViewModels()
+
+    private lateinit var taskAdapter: TaskAdapter
+    private lateinit var tasksRecyclerView: RecyclerView
+    private lateinit var taskInputEditText: EditText
+    private lateinit var addTaskButton: Button
+    private lateinit var totalTasksTextView: TextView
+    private lateinit var completedTasksTextView: TextView
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_task_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initializeViews(view)
+        setupRecyclerView()
+        setupClickListeners()
+        observeViewModel()
+    }
+
+    private fun initializeViews(view: View) {
+        tasksRecyclerView = view.findViewById(R.id.tasksRecyclerView)
+        taskInputEditText = view.findViewById(R.id.taskInputEditText)
+        addTaskButton = view.findViewById(R.id.addTaskButton)
+        totalTasksTextView = view.findViewById(R.id.totalTasksTextView)
+        completedTasksTextView = view.findViewById(R.id.completedTasksTextView)
+    }
+
+    private fun setupRecyclerView() {
+        taskAdapter = TaskAdapter(
+            onTaskClicked = { task ->
+                // TODO Part 2 Step 1: Navigate to detail screen with Safe Args
+                // 1. Uncomment the findNavController import at the top
+                // 2. Create a Safe Args action:
+                //    val action = TaskListFragmentDirections.actionListToDetail(task.id)
+                // 3. Navigate using NavController:
+                //    findNavController().navigate(action)
+                // This will pass the task.id to TaskDetailFragment with compile-time safety
+            },
+            onTaskToggled = { taskId ->
+                viewModel.toggleTaskCompletion(taskId)
+            },
+            onTaskDeleted = { taskId ->
+                viewModel.deleteTask(taskId)
+            }
+        )
+        tasksRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = taskAdapter
+        }
+    }
+
+    private fun setupClickListeners() {
+        addTaskButton.setOnClickListener {
+            val title = taskInputEditText.text.toString().trim()
+            if (title.isNotEmpty()) {
+                viewModel.addTask(title)
+                taskInputEditText.text.clear()
+            }
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.tasks.observe(viewLifecycleOwner) { tasks ->
+            taskAdapter.updateTasks(tasks)
+        }
+
+        viewModel.totalTaskCount.observe(viewLifecycleOwner) { count ->
+            totalTasksTextView.text = "Total: $count"
+        }
+
+        viewModel.completedTaskCount.observe(viewLifecycleOwner) { count ->
+            completedTasksTextView.text = "Completed: $count"
+        }
+    }
+}

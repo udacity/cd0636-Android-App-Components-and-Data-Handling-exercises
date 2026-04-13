@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_completed">
+
+    <!-- TODO 1.9: Add completedListFragment
+         - android:id="@+id/completedListFragment"
+         - android:name="com.udacity.project.app.CompletedListFragment"
+         - android:label="Completed"
+         - tools:layout="@layout/fragment_task_list"
+         - Add action "action_completed_to_detail" to taskDetailFragment
+         - Add action "action_completed_to_add_task" to addTaskFragment
+    -->
+
+    <!-- TODO 1.10: Add taskDetailFragment (same as previous nav graphs)
+         - android:id="@+id/taskDetailFragment"
+         - android:name="com.udacity.project.app.TaskDetailFragment"
+         - android:label="Task Detail"
+         - tools:layout="@layout/fragment_task_detail"
+         - Add argument "taskId" of type "integer"
+    -->
+
+    <!-- TODO 1.11: Add addTaskFragment (same as previous nav graphs)
+         - android:id="@+id/addTaskFragment"
+         - android:name="com.udacity.project.app.AddTaskFragment"
+         - android:label="Add Task"
+         - tools:layout="@layout/fragment_add_task"
+    -->
+
+    <!-- TODO 1.12: Set the start destination
+         Add app:startDestination="@id/completedListFragment" to the navigation element above
+    -->
+
+</navigation>

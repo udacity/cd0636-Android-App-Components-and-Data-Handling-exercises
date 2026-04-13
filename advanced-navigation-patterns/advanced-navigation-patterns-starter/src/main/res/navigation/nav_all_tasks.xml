@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_all_tasks">
+
+    <!-- TODO 1.1: Add allTasksListFragment
+         - android:id="@+id/allTasksListFragment"
+         - android:name="com.udacity.project.app.AllTasksListFragment"
+         - android:label="All Tasks"
+         - tools:layout="@layout/fragment_task_list"
+         - Add action "action_list_to_detail" to taskDetailFragment
+         - Add action "action_list_to_add_task" to addTaskFragment
+    -->
+
+    <!-- TODO 1.2: Add taskDetailFragment
+         - android:id="@+id/taskDetailFragment"
+         - android:name="com.udacity.project.app.TaskDetailFragment"
+         - android:label="Task Detail"
+         - tools:layout="@layout/fragment_task_detail"
+         - Add argument "taskId" of type "integer"
+    -->
+
+    <!-- TODO 1.3: Add addTaskFragment
+         - android:id="@+id/addTaskFragment"
+         - android:name="com.udacity.project.app.AddTaskFragment"
+         - android:label="Add Task"
+         - tools:layout="@layout/fragment_add_task"
+    -->
+
+    <!-- TODO 1.4: Set the start destination
+         Add app:startDestination="@id/allTasksListFragment" to the navigation element above
+    -->
+
+</navigation>

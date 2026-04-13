@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_favorites"
+    app:startDestination="@id/favoritesListFragment">
+
+    <fragment
+        android:id="@+id/favoritesListFragment"
+        android:name="com.udacity.project.app.FavoritesListFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_task_list">
+        <action
+            android:id="@+id/action_favorites_to_detail"
+            app:destination="@id/taskDetailFragment" />
+        <action
+            android:id="@+id/action_favorites_to_add_task"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.udacity.project.app.TaskDetailFragment"
+        android:label="Task Detail"
+        tools:layout="@layout/fragment_task_detail">
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.udacity.project.app.AddTaskFragment"
+        android:label="Add Task"
+        tools:layout="@layout/fragment_add_task" />
+
+</navigation>

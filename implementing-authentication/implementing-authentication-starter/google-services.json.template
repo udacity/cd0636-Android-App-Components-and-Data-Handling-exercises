@@ -1,0 +1,10 @@
+{
+  "INSTRUCTIONS": "This is a template file. Follow these steps:",
+  "STEP_1": "Go to https://console.firebase.google.com/",
+  "STEP_2": "Create or select a Firebase project",
+  "STEP_3": "Add an Android app with package name: com.udacity.project.app",
+  "STEP_4": "Download the google-services.json file",
+  "STEP_5": "Replace this file with your downloaded google-services.json",
+  "STEP_6": "Enable Email/Password authentication in Firebase Console under Authentication > Sign-in method",
+  "IMPORTANT": "The app will NOT build without a valid google-services.json file"
+}

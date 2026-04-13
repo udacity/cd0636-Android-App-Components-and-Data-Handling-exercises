@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO Step 2: Menu item IDs must match nested nav graph IDs
+         so that setupWithNavController knows which graph to show per tab. -->
+    <item
+        android:id="@+id/nav_all_movies"
+        android:title="All"
+        android:icon="@drawable/ic_list" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:title="Favorites Movies"
+        android:icon="@drawable/ic_star" />
+    <item
+        android:id="@+id/nav_watched"
+        android:title="Watched Movies"
+        android:icon="@drawable/ic_check" />
+</menu>
