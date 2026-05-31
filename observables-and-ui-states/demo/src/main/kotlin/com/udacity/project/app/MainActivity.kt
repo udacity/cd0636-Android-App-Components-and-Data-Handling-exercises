@@ -5,13 +5,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MovieViewModel
@@ -32,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         initializeViews()
         setupRecyclerView()
         setupClickListeners()
-        // TODO Step 2.1: Call observeViewModelWithFlow()
-        observeViewModelWithFlow()
+        // TODO Step 2.1: Call observeViewModel()
+        observeViewModel()
     }
 
     private fun initializeViews() {
@@ -44,28 +40,18 @@ class MainActivity : AppCompatActivity() {
         watchedMoviesTextView = findViewById(R.id.watchedMoviesTextView)
     }
 
-    // TODO Step 2.1: Collect StateFlows inside repeatOnLifecycle — each collect() needs its own launch
-    private fun observeViewModelWithFlow() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    viewModel.movies.collect { movies ->
-                        movieAdapter.updateMovies(movies)
-                    }
-                }
+    // TODO Step 2.1: Observe LiveData with observe(this) { ... } — each property gets its own observer
+    private fun observeViewModel() {
+        viewModel.movies.observe(this) { movies ->
+            movieAdapter.updateMovies(movies)
+        }
 
-                launch {
-                    viewModel.totalMovieCount.collect { count ->
-                        totalMoviesTextView.text = "Total: $count"
-                    }
-                }
+        viewModel.totalMovieCount.observe(this) { count ->
+            totalMoviesTextView.text = "Total: $count"
+        }
 
-                launch {
-                    viewModel.watchedCount.collect { count ->
-                        watchedMoviesTextView.text = "Watched: $count"
-                    }
-                }
-            }
+        viewModel.watchedCount.observe(this) { count ->
+            watchedMoviesTextView.text = "Watched: $count"
         }
     }
 
