@@ -1,39 +1,27 @@
 package com.udacity.project.app
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
+import androidx.lifecycle.map
 
 class MovieViewModel : ViewModel() {
 
-    // TODO Step 1.1: Create MutableStateFlow (private) and expose as StateFlow (public)
-    private val _movies = MutableStateFlow<List<Movie>>(emptyList())
-    val movies: StateFlow<List<Movie>> = _movies.asStateFlow()
+    // TODO Step 1.1: Create MutableLiveData (private) and expose as LiveData (public)
+    private val _movies = MutableLiveData<List<Movie>>()
+    val movies: LiveData<List<Movie>> get() = _movies
 
     private var nextMovieId = 4
 
-    // TODO Step 1.2: Create totalMovieCount computed StateFlow using map() + stateIn()
-    val totalMovieCount: StateFlow<Int> = _movies.map { it.size }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000),
-        initialValue = 0
-    )
+    // TODO Step 1.2: Create totalMovieCount computed LiveData using map()
+    val totalMovieCount: LiveData<Int> = _movies.map { it.size }
 
-    // TODO Step 1.2: Create watchedCount computed StateFlow using map() + stateIn()
-    val watchedCount: StateFlow<Int> = _movies.map { it.count { movie -> movie.watched } }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000),
-        initialValue = 0
-    )
+    // TODO Step 1.2: Create watchedCount computed LiveData using map()
+    val watchedCount: LiveData<Int> = _movies.map { it.count { movie -> movie.watched } }
 
     init {
-        // TODO Step 1.1: Set initial value on the MutableStateFlow
+        // TODO Step 1.1: Set initial value on the MutableLiveData
         _movies.value = listOf(
             Movie(id = 1, title = "The Dark Knight", watched = false),
             Movie(id = 2, title = "Inception", watched = true),
@@ -45,11 +33,11 @@ class MovieViewModel : ViewModel() {
 
     fun addMovie(title: String) {
         val newMovie = Movie(id = nextMovieId++, title = title, watched = false)
-        _movies.value += newMovie
+        _movies.value = (_movies.value ?: emptyList()) + newMovie
     }
 
     fun toggleWatched(movieId: Int) {
-        _movies.value = _movies.value.map { movie ->
+        _movies.value = (_movies.value ?: emptyList()).map { movie ->
             if (movie.id == movieId)
                 movie.copy(watched = !movie.watched)
             else
@@ -58,6 +46,6 @@ class MovieViewModel : ViewModel() {
     }
 
     fun removeMovie(movieId: Int) {
-        _movies.value = _movies.value.filter { it.id != movieId }
+        _movies.value = (_movies.value ?: emptyList()).filter { it.id != movieId }
     }
 }

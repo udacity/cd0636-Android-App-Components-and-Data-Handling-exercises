@@ -1,0 +1,297 @@
+[versions]
+# ===================================
+# Build & Core Tooling
+# ===================================
+# Android Gradle Plugin - Builds Android apps
+agp = "8.13.2"
+# Kotlin language version
+kotlin = "2.3.0"
+# KSP (Kotlin Symbol Processing) - Annotation processor for Room, etc.
+ksp = "2.3.5"
+# Google Services Plugin - Processes google-services.json for Firebase
+googleServices = "4.4.4"
+
+# ===================================
+# Firebase & Security
+# ===================================
+# Firebase BOM - Bill of Materials for Firebase libraries
+firebaseBom = "34.8.0"
+# DataStore - Modern data storage solution (replaces SharedPreferences)
+datastore = "1.1.2"
+# Tink - Cryptography library for secure encryption
+tink = "1.16.0"
+# Biometric - Biometric authentication
+biometric = "1.2.0-alpha05"
+
+# ===================================
+# AndroidX Core Libraries
+# ===================================
+# Core KTX - Kotlin extensions for Android framework
+coreKtx = "1.17.0"
+# AppCompat - Backward compatibility for newer Android features
+appcompat = "1.7.1"
+# Activity KTX - Kotlin extensions for Activity (provides viewModels() delegate)
+activity = "1.12.3"
+
+# ===================================
+# UI & Material Design
+# ===================================
+# Material Design Components - Google's design system
+material = "1.13.0"
+# ConstraintLayout - Flexible layout system
+constraintlayout = "2.2.1"
+# RecyclerView - Efficient list display
+moshi = "1.15.2"
+recyclerview = "1.4.0"
+# CardView - Material Design card component
+cardview = "1.0.0"
+# FlexboxLayout - Flexbox layout for Android
+flexbox = "3.0.0"
+# SwipeRefreshLayout - Pull-to-refresh gesture
+swiperefreshlayout = "1.2.0"
+# Compose BOM - Bill of Materials for Jetpack Compose
+composeBom = "2026.01.01"
+
+# ===================================
+# Navigation Component
+# ===================================
+# Navigation Fragment & UI - Jetpack Navigation for fragments
+navigationFragmentKtx = "2.9.7"
+navigationUiKtx = "2.9.7"
+
+# ===================================
+# Architecture Components
+# ===================================
+# Room Database - SQLite abstraction layer
+room = "2.8.4"
+# Lifecycle - ViewModel, LiveData, lifecycle-aware components
+lifecycle = "2.10.0"
+# Paging 3 - Pagination library for loading data incrementally
+paging = "3.4.0"
+
+# ===================================
+# Network & Data
+# ===================================
+# Retrofit - Type-safe HTTP client
+retrofit = "3.0.0"
+# OkHttp - HTTP client (Retrofit dependency)
+okhttp = "5.3.2"
+
+# ===================================
+# Asynchronous Programming
+# ===================================
+# Kotlin Coroutines - Async/await for Kotlin
+coroutines = "1.10.2"
+
+# ===================================
+# Image Loading
+# ===================================
+# Coil - Image loading library for Kotlin
+coil = "2.7.0"
+
+# ===================================
+# Testing Libraries
+# ===================================
+# JUnit 4 - Unit testing framework
+junit = "4.13.2"
+# AndroidX JUnit - Android instrumented test runner
+junitVersion = "1.3.0"
+# Espresso - UI testing framework
+espressoCore = "3.7.0"
+# Robolectric - Android unit tests without emulator
+robolectric = "4.16.1"
+# MockK - Mocking library for Kotlin
+mockk = "1.14.9"
+# Coroutines Test - Test utilities for coroutines
+coroutinesTest = "1.10.2"
+# Turbine - Flow testing library
+turbine = "1.2.1"
+# Architecture Core Testing - LiveData testing utilities
+archCoreTesting = "2.2.0"
+# MockWebServer - Mock HTTP server for testing Retrofit
+mockWebServer = "5.3.2"
+
+[libraries]
+# ===================================
+# AndroidX Core Libraries
+# ===================================
+# Core KTX - Kotlin extensions for Android framework APIs
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+# AppCompat - Backward compatibility support for Material Design and ActionBar
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+# Activity KTX - Kotlin extensions for Activity, provides viewModels() delegate
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+
+# ===================================
+# UI & Material Design
+# ===================================
+# Material Design Components - Buttons, cards, dialogs, etc.
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+# ConstraintLayout - Build complex layouts with flat view hierarchy
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+# RecyclerView - Efficiently display large datasets
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+# CardView - Material Design card container
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
+# FlexboxLayout - CSS Flexbox-like layout for Android
+google-flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
+# SwipeRefreshLayout - Pull-to-refresh UI pattern
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+
+# ===================================
+# Jetpack Compose
+# ===================================
+# Compose BOM - Bill of Materials (manages all Compose library versions)
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+# Compose UI libraries (versions managed by BOM)
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version = "1.7.8" }
+# Compose Material3 - Material Design 3 components
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+# Activity Compose - Integration between Activity and Compose
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+# Lifecycle Compose integrations
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+
+# ===================================
+# Navigation Component
+# ===================================
+# Navigation Fragment - Fragment-based navigation with type safety
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+# Navigation UI - Integration with Toolbar, BottomNavigationView, etc.
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+
+# ===================================
+# Room Database (Local Persistence)
+# ===================================
+# Room Runtime - Core Room database library
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+# Room KTX - Kotlin extensions and coroutines support for Room
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+# Room Compiler - Annotation processor (use KSP)
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+# Room Paging - Integration between Room and Paging 3
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+
+# ===================================
+# Network & Remote Data
+# ===================================
+# Retrofit - Type-safe REST client for API calls
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+# Retrofit Gson Converter - JSON serialization/deserialization
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+# OkHttp Logging Interceptor - HTTP request/response logging
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# Moshi
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+# ===================================
+# Asynchronous Programming
+# ===================================
+# Coroutines Core - Core coroutines library
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+# Coroutines Android - Android-specific coroutines support (Main dispatcher)
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# ===================================
+# Architecture Components (MVVM)
+# ===================================
+# ViewModel - UI-related data holder (survives configuration changes)
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+# LiveData - Lifecycle-aware observable data holder
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+# Lifecycle Runtime - Lifecycle-aware components base library
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+
+# ===================================
+# Paging 3 - Pagination Library
+# ===================================
+# Paging Runtime - Core paging library for loading data in pages
+androidx-paging-runtime-ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+# Paging Common - Shared paging infrastructure
+androidx-paging-common-ktx = { group = "androidx.paging", name = "paging-common-ktx", version.ref = "paging" }
+
+# ===================================
+# Image Loading
+# ===================================
+# Coil - Modern image loading library for Kotlin with coroutines support
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+
+# ===================================
+# Firebase & Security
+# ===================================
+# Firebase BOM - Bill of Materials (manages all Firebase library versions)
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+# Firebase Analytics - App analytics and user behavior tracking (version managed by BOM)
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+# Firebase Authentication - User authentication (version managed by BOM)
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+
+# DataStore Preferences - Type-safe data storage using Kotlin coroutines and Flow
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+# Tink Android - Cryptography library for encryption/decryption
+tink-android = { group = "com.google.crypto.tink", name = "tink-android", version.ref = "tink" }
+# Biometric - Biometric authentication (fingerprint, face recognition)
+androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+
+# ===================================
+# Testing Libraries
+# ===================================
+# JUnit 4 - Standard unit testing framework
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+# AndroidX JUnit - AndroidX test runner for instrumented tests
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+# Espresso - UI testing framework for Android
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+# Robolectric - Run Android tests in JVM without emulator
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+# MockK - Mocking library designed for Kotlin
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+# Coroutines Test - Testing utilities for coroutines (TestDispatcher, runTest)
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+# Turbine - Testing library for Kotlin Flows
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+# Architecture Core Testing - InstantTaskExecutorRule for LiveData testing
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
+# AndroidX Test Core - Robolectric testing utilities
+androidx-test-core = { group = "androidx.test", name = "core", version = "1.7.0" }
+# Room Testing - Room database testing utilities
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+# MockWebServer - Mock HTTP server for testing Retrofit API calls
+mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockWebServer" }
+
+[plugins]
+# ===================================
+# Build Plugins
+# ===================================
+# Android Application Plugin - Required for building Android apps
+android-application = { id = "com.android.application", version.ref = "agp" }
+# Kotlin Android Plugin - Enables Kotlin language support in Android
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# Compose Compiler Plugin - Enables Jetpack Compose (Kotlin 2.0+)
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+# ===================================
+# Code Generation Plugins
+# ===================================
+# KSP (Kotlin Symbol Processing) - Annotation processor for Room, etc.
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+# Google Services - Processes google-services.json for Firebase and GMS
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+
+# ===================================
+# Navigation Plugin
+# ===================================
+# Navigation Safe Args - Type-safe argument passing between destinations
+androidx-navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx" }
+
